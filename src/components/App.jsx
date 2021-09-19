@@ -1,5 +1,5 @@
 
-export default function App() {
+export function App() {
   return (
       <span>Hello World</span>
   );
