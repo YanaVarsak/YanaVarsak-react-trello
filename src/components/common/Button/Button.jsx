@@ -1,3 +1,11 @@
-export const Button = () =>{
-    return <div> кнопка </div>
-}
+
+import css from './style.module.css'
+
+export function Button({ title }) {
+    return (
+      <button onClick className={css.button}>
+        {title}
+      </button>
+    );
+  }
+

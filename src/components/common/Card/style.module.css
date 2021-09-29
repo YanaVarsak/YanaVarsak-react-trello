@@ -1,0 +1,16 @@
+.card {
+	position: relative;
+	overflow: hidden;
+	width: 275px;
+	margin: 10px;
+	border-radius: 5px;
+	background-color:rgb(226, 229, 231);
+}
+.card:first-child {
+	padding-bottom: 40px;
+}
+@media (max-width: 800px) {
+	.card {
+		width: 70%;
+	}
+}

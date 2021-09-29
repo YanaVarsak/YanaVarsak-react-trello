@@ -1,0 +1,36 @@
+
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	max-width: 1500px;
+	margin: 0 auto;
+	white-space: nowrap;
+	color: black;
+	background: url(/src/img/bg.jpg);
+   
+	background-size: cover;
+	font-family: 'GoogleSans', Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: 400;
+    
+}
+
+
+@media (max-width: 800px) {
+	.wrapper {
+		margin: 0;
+	}
+
+	.container-cards {
+		flex-direction: column;
+	}
+}
