@@ -1,16 +1,29 @@
-.wrapper {
+.headerWrapper {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    color: black;
+    padding: 20px;
+    font-size: 30;
+    font-weight: 600;
     cursor: pointer;
-	background-color: aliceblue;
-    height: 40px;
-}
-
-.wrapper a {
-	text-decoration: none;
-    color: black;
-	
-}
-
+    color: rgb(116, 132, 160, 0.85);
+    font-size: 30px;
+    font-weight: 600;
+    transition: 0.5s;
+  }
+  .headerLogo:hover {
+    color: #f4f5f7;
+    transition: 0.5s;
+  }
+  .headerMenuList{
+    list-style-type: none;
+    padding: 10px 20px 20px 20px;
+  }
+  .headerMenuItem button{
+    margin: 5px;
+    min-width: 180px;
+    transition: 1s;
+  }
+  .headerMenuLogo:hover {
+    color: #f4f5f7;
+    transition: 1s;
+  }

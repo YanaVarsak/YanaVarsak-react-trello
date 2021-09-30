@@ -1,16 +1,30 @@
 .card {
-	position: relative;
+	float:left;
 	overflow: hidden;
-	width: 275px;
+	width: 250px;
 	margin: 10px;
 	border-radius: 5px;
-	background-color:rgb(226, 229, 231);
-}
-.card:first-child {
-	padding-bottom: 40px;
-}
+	background-color: #f4f5f7cc;
+	z-index: 1;
+	}
+
+	h2{
+		text-align: center;
+	}
+	li{
+		display: flex;
+		justify-content: center;
+	    align-items: center;
+		text-decoration: none;
+		list-style-type: none;
+	
+	}
+	ul {
+		margin-left: 0px; /* Отступ слева в браузере IE и Opera */
+		padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+	   }
 @media (max-width: 800px) {
 	.card {
-		width: 70%;
+		width: 50%;
 	}
 }

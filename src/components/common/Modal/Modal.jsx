@@ -7,9 +7,8 @@ import css from './modal.module.css'
     return (
            <div>
                <div className={css.wrapper}>
-                   <div className={css.modal}>
+                   <div className={css.modal}> {children}
                <div className={css.buttonClose } onClick={onClose}>x</div>
-               {children}
                </div>
                </div>
             </div> 
