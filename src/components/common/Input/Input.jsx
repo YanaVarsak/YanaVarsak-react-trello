@@ -1,9 +1,10 @@
 import css from './style.module.css'
 
-export const Input = ({value, onChange}) => {
+export const Input = ({value, onChange, errorMesage}) => {
+
     return (
         <div>
-            <input value = {value} onChange = {onChange} placeholder='Ввведите таску' className={css.input} />
+            <input  errorMessage = {errorMesage} value = {value} onChange = {onChange} className={css.input} />
         </div>
     )
 }
