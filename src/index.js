@@ -9,28 +9,33 @@ import {
 import { LoginPage } from "./components/LoginPage/LoginPage";
 import { App } from "./components";
 import {UserPage}from './components/UserPage/UserPage';
-import { Header } from './components/Header'
+import { Header } from './components/Header';
 import { Tasks } from './components/Tasks';
 
 class AppWithAuth extends React.Component {
   state = { isAuth: false };
 
+onAuthSucces = () =>{
+    this.setState((prevState) => ({
+      isAuth: !prevState.isAuth,
+    }));
+  };
+
   
 
   render() {
-   
     return (
       <BrowserRouter>
-        <Header />
+       <Header/>
       <Switch>
         <Route path="/login">
           {this.state.isAuth ? (<Redirect to="/dashboard" />
           ) : (
-            <LoginPage />
+            <LoginPage  onAuthSucces={this.onAuthSucces}/>
           )}
         </Route>
         <Route path="/dashboard">
-          {this.state.isAuth ? <App /> : <Redirect to="/login" />}
+          {this.state.isAuth ? <App/> : <Redirect to="/login" />}
         </Route>
         <Route path="/config">
         {this.state.isAuth ? <App /> : <Redirect to="/login" />}

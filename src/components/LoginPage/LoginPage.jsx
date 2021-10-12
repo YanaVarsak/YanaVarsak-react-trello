@@ -8,8 +8,7 @@ import { Input } from '../common/Input'
 export class LoginPage extends React.Component {
 state = {
         values: { login: '', password: ''},
-        errors: { login: '', password: ''},
-        isAuth: true,
+        errors: { login: ' Неверный логин', password: 'Неверный пароль'},
      }
 
      handler = ({ target }) => {
@@ -21,12 +20,15 @@ state = {
         }));
     }
     onClick = () => {
-        if (this.state.values.login === this.state.values.password === '111'){
-            this.setState({isAuth:true}) 
-            alert('Успех')
+        if (this.state.values.login === '111' && this.state.values.password === '111'){
+            this.props.onAuthSucces()
          } else if (this.state.values.login !=='111' && this.state.values.password !== '111') {
-             this.setState({lisAuth: false})
-         }
+         alert('Неверный логин и пароль') 
+         } else if (this.state.values.password !=='111'){
+            alert('Неверный пароль')
+        } else if ( this.state.values.login !=='111'){
+            alert('Неверный логин')
+        }
     }
  
     render() {
@@ -42,7 +44,7 @@ state = {
               <h3 className={css.login} > Пароль:</h3>
               <Input placeholder=" Сюда вводить пароль" type="password" name="password" onChange={this.handler}/></div>
               <div className={css.wrongPass}>Неверный пароль</div>
-              <Button  click={this.onClick} className={css.btn} type="submit"   title="Войти"/>
+              <Button  click={this.onClick} className={css.btn} type="button"   title="Войти"/>
             </form>
             </div>
           );
