@@ -12,49 +12,39 @@ export class Dashboard extends React.Component {
       isEdit: true,
       tasks: [
         { text: "Create modal", id: 1, status: 'todo' },
-        { text: "Create dashboard", id: 2, status: 'done' },
-        { text: "Create dashboard", id: 3, status: 'in_process' }
-    
+        { text: "Create dashboard", id: 3, status: 'done' },
+        { text: "Create dashboard", id: 2, status: 'in_process' },
       ],
     };
+  
+  
     toStartProcess = (id) => {
       this.setState((prev) =>({
-        tasks: !prev.tasks.map((tasks) => tasks.id !==id ? tasks :{...tasks, status: "in_process"}  )
+        tasks: prev.tasks.map((task) => task.id !==id ? task :{...task, status: "in_process"}  )
       }))
     }
     
     clearTasks = () => {
       this.setState({ tasks: [ ] });
     };
-
- buttonAddClick = () =>{
-    this.setState((prev)=>({
-    tasks:[
-        ...prev.tasks,
-        {text: prev.value, id: +(new Date())} 
-
-    ],
-    value:""
-  }))
-
- 
+    buttonAddClick = () =>{
+      this.setState((prev)=>({
+      tasks:[
+          ...prev.tasks,
+          {text: prev.value, id: +(new Date())} 
   
-
-
+      ],
+      value:""
+    }))
 
  }
     render() {
       return (
-       
         <div className={css.wrapper}>
-
-          {['todo', 'in_progress','done'].map((status)=>(
-
-
+          {['todo', 'in_process','done'].map((status)=>(
           <Card
-         
+
           title={status}
-          
           footer={<div>
 
             <Input value={this.state.value} onChange={(event) => this.setState({ value: event.target.value })} />
@@ -62,11 +52,7 @@ export class Dashboard extends React.Component {
             <Button click={this.clearTasks} title="Удалить" />
           </div>}>
           <div className={css.cardDiv}>
-            <ul className={css.list}>
-              
-            {this.state.tasks.filter((tasks) => tasks.status === status)
-                .map((item) => {
-                
+            <ul className={css.list}> {this.state.tasks.filter((tasks) => tasks.status === status).map((item) => {
                 return (
                   <li onClick={ ()=> this.toStartProcess(item.id)} className={css.listItem} key={item.id}>{item.text}</li>
                 );
@@ -74,11 +60,8 @@ export class Dashboard extends React.Component {
             </ul>
           </div>
         </Card>
-
           ))}
-         
         </div>
-      
       );
     };
 };

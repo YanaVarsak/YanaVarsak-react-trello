@@ -7,10 +7,9 @@ import { Input } from '../common/Input'
 
 export class LoginPage extends React.Component {
 state = {
-        values: { login: '111', password: '111'},
+        values: { login: '', password: ''},
         errors: { login: '', password: ''},
-        loginValid: true,
-        passwordValid: true,
+        isAuth: true,
      }
 
      handler = ({ target }) => {
@@ -22,32 +21,28 @@ state = {
         }));
     }
     onClick = () => {
-        if (this.state.values.login === this.state.errors.login && 
-         this.state.values.password === this.state.errors.password){
+        if (this.state.values.login === this.state.values.password === '111'){
+            this.setState({isAuth:true}) 
             alert('Успех')
-         } else if (this.state.values.login !== this.state.errors.login) {
-             this.setState({loginValid: false})
-         } else if (this.state.values.password !== this.state.errors.password) {
-             this.setState({passwordValid: false})
+         } else if (this.state.values.login !=='111' && this.state.values.password !== '111') {
+             this.setState({lisAuth: false})
          }
     }
- errorMessage =() => {
-    if (this.props.description.name.trim() === ""){
-        alert('Ghhkk')
-    }
- }
+ 
     render() {
 
         return (
             <div className={css.wrapper}>
-            <form onSubmit={this.onSubmit}>
+            <form >
               <div>
                   <h3 className={css.login} > Логин:</h3>
                    <Input placeholder="Сюда вводить логин" type="text" name="login" onChange={this.handler}/></div>
+                   <div className={css.wrongLogin}>Неверный логин</div>
               <div>   
               <h3 className={css.login} > Пароль:</h3>
               <Input placeholder=" Сюда вводить пароль" type="password" name="password" onChange={this.handler}/></div>
-              <Button className={css.btn} type="submit"   title="Войти"/>
+              <div className={css.wrongPass}>Неверный пароль</div>
+              <Button  click={this.onClick} className={css.btn} type="submit"   title="Войти"/>
             </form>
             </div>
           );

@@ -12,6 +12,15 @@
   align-items: center;
   justify-content: center;
 }
-.color{
-   background: #000;
+
+
+
+.wrongLogin, .wrongPass {
+    opacity: 0;
+    color: red;
+}
+
+.active {
+    opacity: 1;
+    color: red;
 }

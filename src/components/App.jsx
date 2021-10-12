@@ -3,6 +3,7 @@ import { Header } from './Header';
 import { Dashboard } from './Dashboard';
 import '../css/styles.css'
 import { LoginPage } from './LoginPage';
+import { UserPage } from './UserPage';
 
  export function App() {
   return (
@@ -10,7 +11,8 @@ import { LoginPage } from './LoginPage';
       <Header/>
       <Modal/>
       <Dashboard/>
-      <LoginPage/>.
+      <LoginPage/>
+      <UserPage/>
     </div>
   );
   };

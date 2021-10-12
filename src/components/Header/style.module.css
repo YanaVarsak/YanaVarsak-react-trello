@@ -32,3 +32,18 @@
     color: #f4f5f7;
     transition: 1s;
   }
+
+  .headerLink:hover{
+    transition: 0.5s;
+    color: #f4f5f7;
+  }
+
+  .headerLink{
+    margin-right: 20px;
+    transition: 0.5s;
+  }
+
+  .headerLinks{
+    display: flex;
+    justify-content: space-between;
+  }

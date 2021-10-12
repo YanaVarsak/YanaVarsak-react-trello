@@ -1,7 +1,12 @@
 import React from "react"
 import { Modal } from '../common/Modal';
 import css from './style.module.css'
-
+import {
+  BrowserRouter as 
+  
+  Link,
+ 
+} from "react-router-dom";
 
 
 export class Header extends React.Component {
@@ -22,6 +27,10 @@ export class Header extends React.Component {
       return (
         <div className={css.headerWrapper}>
           <div className={css.headerLogo}> Trello </div>
+          <div className={css.headerLinks}>             
+     <div className={css.headerLink} >  <Link to="./dashboard">dashboard</Link></div>
+     <div className={css.headerLink} > <Link to="./config">user</Link></div>
+      </div>
           <div className={css.headerMenu}>
             <Modal isVisible={this.state.test}onClose={() => this.setState({ test: false })}>
               <ul className={css.headerMenuList} >
